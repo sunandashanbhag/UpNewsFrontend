@@ -42,13 +42,13 @@ export default function NewsScreen() {
     setNews((prev) => prev.filter((item) => item.id !== id));
   }
 
-  return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-bl from-green-50 to-pink-100 px-4 py-8">
-        <div className="w-full max-w-md flex flex-col items-center justify-center relative min-h-[400px]">
+return (
+    <div className="min-h-screen w-screen flex items-center justify-center bg-gradient-to-bl from-green-50 to-pink-100">
+      <div className="relative w-[350px] h-[500px]">
         <AnimatePresence>
           {news.length === 0 && (
             <motion.div
-              className="text-center text-2xl font-bold text-gray-500 absolute w-full"
+              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-2xl font-bold text-gray-500"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -56,10 +56,11 @@ export default function NewsScreen() {
               No more news for now!
             </motion.div>
           )}
+
           {news.slice(0, 1).map((item) => (
             <motion.div
               key={item.id}
-              className="bg-white rounded-2xl shadow-xl p-4 flex flex-col items-center absolute w-full"
+              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-white rounded-2xl shadow-xl p-4 flex flex-col items-center w-full"
               drag="x"
               dragConstraints={{ left: 0, right: 0 }}
               dragElastic={1}
